@@ -1,4 +1,7 @@
-# Blog Post2 - Simple Flask Web Development
+---
+layout: post
+title: Blog Post 2 - Simple Flask Web Development
+---
 
 Hi everyone! In this blog post, I am going to create a simple, interesting Message Bank webapp using Flask. This webapp allows users to submit and view their message on the web page. In this tuturial, I will show you how to create this webapp step by step!
 
@@ -24,6 +27,7 @@ We first create two HTML files, "base.html", "submit.html". We put navigation li
 **base.html**
 
 ```html
+{%raw%}
 <!doctype html>
 <!-- Link to the CSS stylesheet -->
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -50,12 +54,14 @@ We first create two HTML files, "base.html", "submit.html". We put navigation li
     <p> Welcome to Jeff's simple message bank! Click Submit button to submit a message and view them by clicking View Message</p>
   {% endblock %}
 </section>
+{%endraw%}
 ```
 
 **submit.html**
 
 
 ```html
+{%raw%}
 <!--The Submit Message Page Extended from base.html-->
 
 {% extends 'base.html' %}
@@ -87,8 +93,9 @@ We first create two HTML files, "base.html", "submit.html". We put navigation li
     <b>Thank you for submitting a message!</b>
 {% endif %}
 
-    
+
 {% endblock %}
+{%endraw%}
 ```
 
 Then, we create a new file "app.py" and write two Python functions for database management:
@@ -245,6 +252,7 @@ We then write our view template "view.html", and it should also extend "base.htm
 
 
 ```html
+{%raw%}
 <!--The View Page Extended from base.html-->
 {% extends 'base.html' %}
 
@@ -262,6 +270,7 @@ We then write our view template "view.html", and it should also extend "base.htm
   <br>
   {% endfor %}
 {% endblock %}
+{%endraw%}
 ```
 
 ## §3. Customize Your App
@@ -272,6 +281,7 @@ To make our app more beautiful, we can customize our web app by editing the CSS.
 
 
 ```css
+{%raw%}
 html {
     background: rgb(249, 205, 173);
     padding: 1rem;
@@ -314,15 +324,17 @@ input {
 a {
     text-decoration: none;
 }
+{%endraw%}
 ```
 
 Let's see some screenshots of our web app! Also, we should remember to activate the appropriate PIC16B conda environment and navigate to the directory where app.py file located at. After activate the conda environment, we run the following code in the terminal before we test our web app.
 
-
 ```zsh
+ {%raw%}
 conda activate PIC16B
 export FLASK_ENV=development
 flask run
+{%endraw%}
 ```
 
 **Screencap 1 - Example of a user submitting a message** 
@@ -332,3 +344,4 @@ flask run
 **Screencap 2 - An example of a user viewing submitted messages**
 
 ![Figure 2](https://github.com/jeff1hwang/jeff1hwang.github.io/blob/master/images/blog_post2/figure5.png?raw=true)
+

@@ -1,0 +1,33 @@
+<!--The Submit Message Page Extended from base.html-->
+
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Enter Your Message and Name{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <!-- Creating the three user interfaces within a form tag -->
+    <br>
+    <form method="post">
+
+      <!-- Creating a text box for submitting name or handle -->
+      <label for="handle">Enter Your Name</label>
+      <input type="text" name="handle" id="handle">
+      <br>
+
+      <!-- Creating a text box for submitting a message -->
+      <label for="message">Enter Your Message:</label>
+      <input type="text" name="message" id="message">
+      <br>
+      
+      <!-- Creating a submit button -->
+      <input type="submit" value="Submit message">
+    </form>
+
+{% if thanks %}
+    <b>Thank you for submitting a message!</b>
+{% endif %}
+
+    
+{% endblock %}
